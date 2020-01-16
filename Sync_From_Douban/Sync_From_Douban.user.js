@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         从豆瓣同步用户数据
-// @namespace    https://github.com/SaulLawliet
-// @version      0.2
 // @description  在其他网站展示豆瓣的阅读记录
+// @version      0.1
 // @author       Saul Lawliet
-// @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/SyncFromDouban
-// @homepageURL  https://github.com/SaulLawliet/UserScripts/tree/master/SyncFromDouban
-// @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/SyncFromDouban/SyncFromDouban.user.js
-// @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/SyncFromDouban/SyncFromDouban.user.js
+// @namespace    https://github.com/SaulLawliet
+// @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/Sync_From_Douban
+// @homepageURL  https://github.com/SaulLawliet/UserScripts/tree/master/Sync_From_Douban
+// @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/Sync_From_Douban/Sync_From_Douban.user.js
+// @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/Sync_From_Douban/Sync_From_Douban.user.js
 // @match        https://www.amazon.cn/*
 // @match        https://read.douban.com/*
 // @connect      api.douban.com
