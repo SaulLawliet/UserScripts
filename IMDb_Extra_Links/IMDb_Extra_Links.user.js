@@ -6,8 +6,8 @@
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/IMDb_Extra_Links
 // @homepageURL  https://github.com/SaulLawliet/UserScripts/tree/master/IMDb_Extra_Links
-// @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/IMDb_Extra_Links/Sync_From_Douban.user.js
-// @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/IMDb_Extra_Links/Sync_From_Douban.user.js
+// @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/IMDb_Extra_Links/IMDb_Extra_Links.user.js
+// @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/IMDb_Extra_Links/IMDb_Extra_Links.user.js
 // @match        www.imdb.com/title/*
 // @connect      movie.douban.com
 // @grant        GM_xmlhttpRequest
