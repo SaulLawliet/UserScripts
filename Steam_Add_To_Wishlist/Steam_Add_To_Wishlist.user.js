@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Steam为限制的游戏添加到愿望单
 // @description  Steam为限制的游戏添加到愿望单
-// @version      0.1
+// @version      0.2
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/Steam_Add_To_Wishlist
 // @homepageURL  https://github.com/SaulLawliet/UserScripts/tree/master/Steam_Add_To_Wishlist
 // @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/Steam_Add_To_Wishlist/Steam_Add_To_Wishlist.user.js
 // @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/Steam_Add_To_Wishlist/Steam_Add_To_Wishlist.user.js
-// @match        https://store.steampowered.com/agecheck/app/*
+// @match        store.steampowered.com/agecheck/app/*
 // ==/UserScript==
 
 (function () {
