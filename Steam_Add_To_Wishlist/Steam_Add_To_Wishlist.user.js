@@ -8,6 +8,7 @@
 // @homepageURL  https://github.com/SaulLawliet/UserScripts/tree/master/Steam_Add_To_Wishlist
 // @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/Steam_Add_To_Wishlist/Steam_Add_To_Wishlist.user.js
 // @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/Steam_Add_To_Wishlist/Steam_Add_To_Wishlist.user.js
+// @match        https://store.steampowered.com/agecheck/app/*
 // ==/UserScript==
 
 (function () {
