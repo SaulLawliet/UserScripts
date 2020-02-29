@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         从豆瓣同步用户数据
+// @name         在其他网站展示豆瓣的阅读记录
 // @description  在其他网站展示豆瓣的阅读记录
 // @version      0.2
 // @author       Saul Lawliet
@@ -19,7 +19,7 @@
 window.onload = function () {
   "use strict";
 
-  var userId = 137811015; // 豆瓣的用户ID
+  var userId = 137811015; // 豆瓣的用户ID(替换成你的用户ID), 书籍的描述参考: https://book.douban.com/people/137811015/
   var key = "0dad551ec0f84ed02907ff5c42e8ec70";
   var site;
 
