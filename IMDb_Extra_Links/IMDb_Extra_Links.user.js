@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         IMDb电影页面增强
-// @description  增强IMDb电影页面，添加豆瓣电影链接和国内正版播放源链接, 以及字幕和torrent
+// @name         IMDb 电影页面增强
+// @description  增强 IMDb 电影页面，添加豆瓣电影链接和国内正版播放源链接, 以及字幕和torrent
 // @version      0.10
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet

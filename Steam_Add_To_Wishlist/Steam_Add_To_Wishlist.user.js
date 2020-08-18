@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         Steam为限制的游戏添加到愿望单
-// @description  Steam为限制的游戏添加到愿望单
+// @name         Steam 为限制的游戏添加到愿望单
+// @description  Steam 为限制的游戏添加到愿望单
 // @version      0.2
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet

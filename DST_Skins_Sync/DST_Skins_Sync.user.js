@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         dst-skins-checklist自动同步数据
+// @name         dst-skins-checklist 自动同步数据
 // @description  为 dst-skins-checklist.github.io 自动拉取玩家数据
 // @version      0.2
 // @author       Saul Lawliet
