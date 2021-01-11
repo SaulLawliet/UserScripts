@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         KeyJoker 标记已有游戏
 // @description  KeyJoker 标记已有游戏(利用keylol.com的数据)
-// @version      0.1
+// @version      0.2
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/Key_Joker_Sync
@@ -34,14 +34,17 @@
             $('.border-bottom')[0].style = "background-color: yellowgreen;";
           }
         } else {
-          $('a').each((index, element) => {
-            if (element.href.startsWith("https://www.keyjoker.com/giveaways/")) {
-              const appid = parseInt(element.href.split('-').pop())
-              if (appidList.includes(appid)) {
-                element.parentNode.parentNode.firstChild.style = "background-color: yellowgreen;";
+          setInterval(() => {() =>
+            $('a').each((index, element) => {
+              if (element.href.startsWith("https://www.keyjoker.com/giveaways/")) {
+                element.parentNode.parentNode.firstChild.style = "";
+                const appid = parseInt(element.href.split('-').pop())
+                if (appidList.includes(appid)) {
+                  element.parentNode.parentNode.firstChild.style = "background-color: yellowgreen;";
+                }
               }
-            }
-          })
+            })
+          }, 3000);
         }
       }
     });
