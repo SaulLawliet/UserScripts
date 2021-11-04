@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Giveaway.su 标记已有游戏
 // @description  Giveaway.su 标记已有游戏
-// @version      0.1
+// @version      0.2
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/Giveaway_Su_Sync
@@ -9,6 +9,9 @@
 // @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/Giveaway_Su_Sync/Giveaway_Su_Sync.user.js
 // @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/Giveaway_Su_Sync/Giveaway_Su_Sync.user.js
 // @match        https://giveaway.su/*
+// @connect      steamdb.keylol.com
+// @connect      api.steampowered.com
+// @connect      steamcommunity.com
 // @grant        GM_xmlhttpRequest
 // @run-at       document-end
 // ==/UserScript==
@@ -24,9 +27,9 @@
     $('.definetelynotanad').each((i, x) => x.remove());
 
     getAppidListByApi()
-      .then((resp) => {
-        console.log('game_count: ' + resp.response.game_count)
-        const appidList = resp.response.games.map(x => x.appid)
+      .then((data) => {
+        console.log('game_count: ' + data.response.game_count)
+        const appidList = data.response.games.map(x => x.appid)
         $('.giveaway-image img').each((i, img) => {
           if (img.src.indexOf('steamcdn') >= 0) {
             const appid = parseInt(img.src.split('/')[5]);
