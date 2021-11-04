@@ -15,6 +15,7 @@
 - [Steam 为限制的游戏添加到愿望单](https://github.com/SaulLawliet/UserScripts/raw/master/Steam_Add_To_Wishlist/Steam_Add_To_Wishlist.user.js)
 - [dst-skins-checklist 自动同步数据](https://github.com/SaulLawliet/UserScripts/raw/master/DST_Skins_Sync/DST_Skins_Sync.user.js)
 - [KeyJoker 标记已有游戏](https://github.com/SaulLawliet/UserScripts/raw/master/Key_Joker_Sync/Key_Joker_Sync.user.js)
+- [Giveaway.Su 标记已有游戏](https://github.com/SaulLawliet/UserScripts/raw/master/Giveaway_Su_Sync/Giveaway_Su_Sync.user.js)
 
 ### 使用
 
