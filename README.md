@@ -1,5 +1,6 @@
 # My UserScripts
 
+[文档](https://www.tampermonkey.net/documentation.php)
 ## 缘由
 
 1. [Tampermonkey](https://www.tampermonkey.net/) 的插件不支持多PC同步, 所以建立个仓库来同步使用的脚本.

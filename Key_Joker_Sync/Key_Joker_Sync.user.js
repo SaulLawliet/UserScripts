@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         KeyJoker 标记已有游戏
-// @description  KeyJoker 标记已有游戏(利用keylol.com的数据)
+// @description  KeyJoker 标记已有游戏
 // @version      0.2
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
@@ -9,6 +9,8 @@
 // @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/Key_Joker_Sync/Key_Joker_Sync.user.js
 // @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/Key_Joker_Sync/Key_Joker_Sync.user.js
 // @match        https://www.keyjoker.com/*
+// @connect      steamdb.keylol.com
+// @connect      api.steampowered.com
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -47,6 +49,23 @@
           }, 3000);
         }
       }
+    });
+  }
+
+  function getAppidListByApi() {
+    // let url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=1470922A6B6E5C001546E51ACA5D987B&include_played_free_games=true&steamid=${steamId}`;
+    let url = `https://steamdb.keylol.com/syncProxy.php?type=own&id=${steamId}`;
+    return new Promise((resolve, reject) => {
+      GM_xmlhttpRequest({
+        method: 'get',
+        url: url,
+        responseType: 'json',
+        onload: function (result) {
+          resolve(result.response);
+        },
+        onerror: reject,
+        ontimeout: reject,
+      })
     });
   }
 })();
