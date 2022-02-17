@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         womplay.io 标记完成的游戏
 // @description  womplay.io 标记完成的游戏, 已知BUG: 每个页面首次打开的时候均有异常
-// @version      0.3
+// @version      0.4
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/Womplay_Mark
@@ -33,7 +33,7 @@ function profile() {
 
 function games(className) {
   const doneList = GM_listValues();
-  for (const e of document.getElementsByClassName(className).concat()) {
+  for (const e of document.getElementsByClassName(className)) {
     if (doneList.includes(e.innerHTML)) {
       e.style = e.style.cssText + 'background-color: green;';
     }
