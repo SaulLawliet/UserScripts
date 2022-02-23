@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         womplay.io 标记完成的游戏
 // @description  womplay.io 标记完成的游戏, 已知BUG: 每个页面首次打开的时候均有异常
-// @version      0.4
+// @version      0.5
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/Womplay_Mark
@@ -19,7 +19,12 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-function profile() {
+async function profile() {
+  let n = 3;
+  while (n > 0 && document.getElementsByClassName('table__tr ').length == 0) {
+    await sleep(3000);
+    n--;
+  }
   for (const e of document.getElementsByClassName('table__tr ')) {
     const name = e.children[0].innerText;
     if (name == 'Earned') {
@@ -31,7 +36,12 @@ function profile() {
   console.log('更新收入成功');
 }
 
-function games(className) {
+async function games(className) {
+  let n = 3;
+  while (n > 0 && document.getElementsByClassName(className).length == 0) {
+    await sleep(3000);
+    n--;
+  }
   const doneList = GM_listValues();
   for (const e of document.getElementsByClassName(className)) {
     if (doneList.includes(e.innerHTML)) {
@@ -44,11 +54,9 @@ function games(className) {
 async function main() {
   const url = new URL(document.URL);
   if (url.pathname == '/' || url.pathname == '/games') {
-    await sleep(1000);
     games('card-game-detailed__title');
     games('card-game-minified__game-title');
   } else if (url.pathname == '/profile') {
-    await sleep(1000);
     profile();
   } else {
     console.log('Not match');
