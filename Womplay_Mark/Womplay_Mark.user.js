@@ -4,10 +4,10 @@
 // @version      0.1
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
-// @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/Sync_From_Douban
-// @homepageURL  https://github.com/SaulLawliet/UserScripts/tree/master/Sync_From_Douban
-// @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/Sync_From_Douban/Sync_From_Douban.user.js
-// @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/Sync_From_Douban/Sync_From_Douban.user.js
+// @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/Womplay_Mark
+// @homepageURL  https://github.com/SaulLawliet/UserScripts/tree/master/Womplay_Mark
+// @downloadURL  https://github.com/SaulLawliet/UserScripts/raw/master/Womplay_Mark/Womplay_Mark.user.js
+// @updateURL    https://github.com/SaulLawliet/UserScripts/raw/master/Womplay_Mark/Womplay_Mark.user.js
 // @match        https://womplay.io/*
 // @run-at       document-idle
 // @grant        GM_xmlhttpRequest

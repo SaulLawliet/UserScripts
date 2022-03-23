@@ -1,6 +1,8 @@
+// https://stackoverflow.com/questions/17341122/link-and-execute-external-javascript-file-hosted-on-github
+// https://cdn.jsdelivr.net/gh/SaulLawliet/UserScripts/snippets.js
 
 /** 获取Steam已有游戏ID, 只包含在售游戏, 速度快 */
-function getAppidListByApi() {
+function getAppidListByApi(steamId) {
   // let url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=1470922A6B6E5C001546E51ACA5D987B&include_played_free_games=true&steamid=${steamId}`;
   let url = `https://steamdb.keylol.com/syncProxy.php?type=own&id=${steamId}`;
   return new Promise((resolve, reject) => {
@@ -18,7 +20,7 @@ function getAppidListByApi() {
 }
 
 /** 获取Steam已有游戏ID, 包含所有游戏, 速度较慢 */
-function getAppidListByWeb() {
+function getAppidListByWeb(steamId) {
   return new Promise((resolve, reject) => {
     GM_xmlhttpRequest({
       method: 'get',
