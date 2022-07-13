@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Melvor Idle: Fix Error
 // @description  Melvor Idle: Fix Error. Like Translate, Herblore potion's name, etc.
-// @version      0.1
+// @version      0.2
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/MelvorIdle_Fix_Error
@@ -22,6 +22,8 @@
     const SCRIPT_NAME = "FixError";
 
     const LANG_VERSION = 348;
+    const GAME_VERSION = "v1.0.5";
+    
     const LANG_JSON = {
       "zh-TW": {
         MODIFIER_DATA: {
@@ -35,39 +37,51 @@
 
     // Grab Melvor data
     const MelvorIdle = {
+      // https://melvoridle.com/assets/js/game/account.js
+      gameVersion: gameVersion,
+
       // https://melvoridle.com/assets/js/game/language.js
       langVersion: langVersion,
       updateUIForLanguageChange: updateUIForLanguageChange,
     };
 
-    function checkLangVersion() {
-      if (LANG_VERSION >= MelvorIdle.langVersion) {
-        return false;
+    function sameGameVersion() {
+      if (MelvorIdle.gameVersion === GAME_VERSION) {
+        return true;
       }
 
-      const storageLangVersion = (localStorage.getItem(SCRIPT_NAME) && JSON.parse(localStorage.getItem(SCRIPT_NAME)).langVersion) || 0;
-      if (MelvorIdle.langVersion > storageLangVersion) {
-        localStorage.setItem(SCRIPT_NAME, JSON.stringify({
-          langVersion: MelvorIdle.langVersion,
-        }));
-        alert(`${SCRIPT_NAME}/checkLangVersion: Pause. Server language version is newer than local language version. (Only alert once.)`);
+      const storageGameVersion = localStorage.getItem(`${SCRIPT_NAME}_GameVersion`) || 0;
+      if (MelvorIdle.gameVersion > storageGameVersion) {
+        localStorage.setItem(`${SCRIPT_NAME}_GameVersion`, MelvorIdle.gameVersion);
+        alert(`${SCRIPT_NAME}/sameGameVersion: Pause. Server game version is newer than local game version. (Only alert once.)`);
       } else {
-        console.warn(`${SCRIPT_NAME}/checkLangVersion: Pause. Server language version is newer than local language version.`);
+        console.warn(`${SCRIPT_NAME}/sameGameVersion: Pause. Server game version is newer than local game version.`);
       }
-      return true;
+      return false;
+    }
+
+    function sameLangVersion() {
+      if (MelvorIdle.langVersion === LANG_VERSION) {
+        return true;
+      }
+
+      const storageLangVersion = localStorage.getItem(`${SCRIPT_NAME}_LangVersion`) || 0;
+      if (MelvorIdle.langVersion > storageLangVersion) {
+        localStorage.setItem(`${SCRIPT_NAME}_LangVersion`, MelvorIdle.langVersion);
+        alert(`${SCRIPT_NAME}/sameLangVersion: Pause. Server language version is newer than local language version. (Only alert once.)`);
+      } else {
+        console.warn(`${SCRIPT_NAME}/sameLangVersion: Pause. Server language version is newer than local language version.`);
+      }
+      return false;
     }
 
     function fixTranslate() {
-      if (checkLangVersion()) {
-        return;
-      }
-
       const language = localStorage.getItem("language") || "en";
       if (language in LANG_JSON) {
         Object.keys(LANG_JSON[language]).forEach((x) => {
           Object.assign(loadedLangJson[x], LANG_JSON[language][x]);
         });
-        // 下面这句貌似没用, 先注释
+        // TODO: need update UI
         // MelvorIdle.updateUIForLanguageChange();
         console.log(`${SCRIPT_NAME}/fixTranslate: [${language}] Overwrite success!`);
       } else {
@@ -95,8 +109,13 @@
     }
 
     (() => {
-      fixTranslate();
-      fixHerblore();
+      if (sameGameVersion()) {
+        fixHerblore();
+      }
+
+      if (sameLangVersion()) {
+        fixTranslate();
+      }
 
       console.log(`${SCRIPT_NAME} loaded.`);
     })();
