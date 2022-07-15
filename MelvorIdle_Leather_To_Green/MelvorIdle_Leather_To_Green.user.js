@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Melvor Idle: Leather to Green
-// @description  Melvor Idle: Leather to Green
+// @description  Melvor Idle: Leather to Dragonhide Green
 // @version      0.1
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
