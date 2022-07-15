@@ -26,12 +26,14 @@
             ref_addItemToBank = addItemToBank;
 
             addItemToBank = (itemID, quantity, found=true, showNotification=true, ignoreBankSpace=false) => {
-                if (ref_addItemToBank(itemID, quantity, found, showNotification, ignoreBankSpace)) {
+                const rtn = ref_addItemToBank(itemID, quantity, found, showNotification, ignoreBankSpace);
+                if (rtn) {
                     if (itemID === CONSTANTS.item.Leather) {
                         buyQty = quantity;
                         buyShopItem("Materials", 8, true); // dragonhide_green
                     }
                 }
+                return rtn;
             }
 
             console.log(`${SCRIPT_NAME} loaded.`);
