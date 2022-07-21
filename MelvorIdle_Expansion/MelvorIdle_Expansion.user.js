@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Melvor Idle: Expansion
-// @description  Melvor Idle: Expansion some function. Like: astrologyPerfectAlway, slayerTaskCostFree, masteryXPToPoolOverflow, etc.
-// @version      0.1
+// @description  Melvor Idle: Expansion some function. Like: astrologyPerfectAlways, slayerTaskCostFree, masteryXPToPoolOverflow, etc.
+// @version      0.2
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/MelvorIdle_Expansion
@@ -22,33 +22,42 @@
 
         // TODO: setting UI.
         const config = {
-            astrologyPerfectAlway: true,
+            astrologyPerfectAlways: true,
             slayerTaskCostFree: true,
             masteryXPToPoolOverflow: true,
+            unlimitedOffline: true,
         };
 
+        // copy from: https://greasyfork.org/en/scripts/435372-melvor-unlimited-offline
+        function patchCode(func, match, replacement) {
+            const codeString = func
+                .toString()
+                .replace(match, replacement)
+                .replace(/^function (\w+)/, "window.$1 = function");
+            eval(codeString);
+        }
+
         (() => {
-            if (config.astrologyPerfectAlway) {
+            if (config.astrologyPerfectAlways) {
                 Astrology.modifierMagnitudeChances = [0, 0, 0, 0, 100];
             }
 
             if (config.slayerTaskCostFree) {
-                SlayerTask.data.forEach(task => {
+                SlayerTask.data.forEach((task) => {
                     task.cost = 0;
                 });
             }
 
             if (config.masteryXPToPoolOverflow) {
-                addMasteryXPToPool = (skill, xp, offline=false, token=false) => {
-                    MASTERY[skill].pool += getMasteryXpToAddToPool(skill, xp, token);
-                    // !!! Allow overflow
-                    // if (MASTERY[skill].pool > getMasteryPoolTotalXP(skill))
-                    //     MASTERY[skill].pool = getMasteryPoolTotalXP(skill);
-                    if (!offline) {
-                        updateMasteryPoolProgress(skill);
-                        updateOpenMasteryXPModal(skill);
-                    }
-                }
+                patchCode(
+                    addMasteryXPToPool,
+                    /(MASTERY\[skill\].pool>)/,
+                    "false&&$1"
+                );
+            }
+
+            if (config.unlimitedOffline) {
+                patchCode(getOfflineTimeDiff, 64800000, "Infinity");
             }
 
             console.log(`${SCRIPT_NAME} loaded.`);
