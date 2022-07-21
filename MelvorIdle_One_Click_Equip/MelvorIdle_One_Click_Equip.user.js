@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Melvor Idle: One Click Equip
 // @description  Quick-Equip button: one-click wear equipment and synergy. Optional check astrology.
-// @version      0.1
+// @version      0.2
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/MelvorIdle_One_Click_Equip
@@ -21,7 +21,7 @@
         const SCRIPT_NAME = "OneClickEquip";
 
         const NON_COMBAT_SET = 0; // 非战斗套装索引: from 0
-        const CHECK_ASTROLOGY = true; // 是否检查星座
+        const CHECK_ASTROLOGY = false; // 是否检查星座
 
         // 空余位置尝试补充
         const SUMMON_EQUIPMENT = [
