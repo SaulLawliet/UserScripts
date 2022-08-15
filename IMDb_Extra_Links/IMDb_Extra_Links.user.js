@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         IMDb电影页面增强
 // @description  增强IMDb电影页面，添加豆瓣电影链接和国内正版播放源链接, 以及字幕和torrent
-// @version      0.11
+// @version      0.12
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/IMDb_Extra_Links
@@ -12,7 +12,7 @@
 // @connect      movie.douban.com
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
-// @require http://code.jquery.com/jquery-3.6.0.min.js
+// @require      https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js
 // ==/UserScript==
 
 GM_addStyle(".extra_list a { color: lightgray; }");
@@ -75,7 +75,7 @@ GM_addStyle(".extra_list a { color: lightgray; }");
   }
 
   function appendBase(imdbID, doubanId, title) {
-      const ul = document.getElementsByClassName('ipc-inline-list')[0];
+      const ul = document.getElementsByClassName('ipc-inline-list')[1];
       const li1 = document.createElement('li');
       li1.className = "ipc-inline-list__item extra_list";
       li1.innerHTML = title
