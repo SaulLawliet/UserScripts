@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         dst-skins-checklist 自动同步数据
 // @description  为 dst-skins-checklist.github.io 自动拉取玩家数据
-// @version      0.4
+// @version      0.5
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/DST_Skins_Sync
@@ -24,7 +24,7 @@
   document.body.appendChild(btn);
 
   btn.onclick = function () {
-    let val = window.prompt("你之前的ID是【" + GM_getValue("steamId", "") + "】，请输入：");
+    let val = window.prompt("你当前的 Steam ID 是【" + GM_getValue("steamId", "") + "】，请输入：");
     if (val) GM_setValue("steamId", val);
   };
 
