@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         IMDb电影页面增强
 // @description  增强IMDb电影页面，添加豆瓣电影链接和国内正版播放源链接, 以及字幕和torrent
-// @version      0.14
+// @version      0.15
 // @author       Saul Lawliet
 // @namespace    https://github.com/SaulLawliet
 // @homepage     https://github.com/SaulLawliet/UserScripts/tree/master/IMDb_Extra_Links
@@ -25,7 +25,7 @@ GM_addStyle(".extra_list a { color: lightgray; }");
   if (imdbID.startsWith("tt")) {
     getDoubanAPI(`movie/imdb/${imdbID}`).then(function (douban) {
       // console.log(douban);
-      var title = douban["alt_title"];
+      var title = douban["alt_title"].split(" ")[0];
       if (title != undefined) {
         var id = douban["alt"].split("/")[4];
         appendBase(imdbID, id, title, douban["rating"]["average"]);
